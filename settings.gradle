@@ -1,0 +1,4 @@
+rootProject.name = 'opc-ua-parent'
+include ':opcua-ui'
+
+project(':opcua-ui').projectDir = "$rootDir/opcua-ui" as File

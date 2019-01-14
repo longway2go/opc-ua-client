@@ -1,0 +1,36 @@
+
+description = 'opc-ua-fx'
+dependencies {
+    compile group: 'org.eclipse.milo', name: 'sdk-client', version:'0.1.2'
+    compile group: 'com.airhacks', name: 'afterburner.fx', version:'1.7.0'
+    compile group: 'ch.qos.logback', name: 'logback-classic', version:'1.2.3'
+    compile group: 'org.slf4j', name: 'slf4j-api', version:'1.7.25'
+    compile group: 'org.javassist', name: 'javassist', version:'3.21.0-GA'
+    testCompile group: 'junit', name: 'junit', version:'4.12'
+}
+
+//配置gradle启动工程
+apply plugin: 'application'
+
+mainClassName = "$main_class"
+
+//打包依赖
+buildscript {
+    repositories {
+        maven {
+            url "$maven_repository"
+        }
+    }
+    dependencies {
+        classpath "com.github.jengelman.gradle.plugins:shadow:2.0.3"
+    }
+}
+
+apply plugin: "com.github.johnrengelman.shadow"
+
+//配置manifest
+jar {
+    manifest {
+        attributes 'Main-Class': "$main_class"
+    }
+}

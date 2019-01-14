@@ -2,3 +2,10 @@
 /.settings/
 /.classpath
 /.project
+*.swp
+opc-ua-parent.iml
+opc-ua-parent.iml
+.idea/
+build/ 
+.gradle/
+gradle/
